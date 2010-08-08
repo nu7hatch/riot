@@ -1,5 +1,12 @@
 $:.unshift(File.dirname(__FILE__) + "/../lib/")
 require 'riot'
+
+require 'riot/reporters/io'
+require 'riot/reporters/story'
+require 'riot/reporters/verbose'
+require 'riot/reporters/silent'
+require 'riot/reporters/dots'
+
 Riot.verbose
 
 Riot.dots if ENV["TM_MODE"]

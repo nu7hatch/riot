@@ -1,5 +1,5 @@
 require 'teststrap'
-require 'riot/rr'
+require 'riot/mocks/rr'
 
 context "Riot with RR support" do
   asserts("RR methods are available to an RR::Situation") do
