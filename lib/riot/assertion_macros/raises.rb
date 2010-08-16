@@ -1,10 +1,12 @@
 module Riot
   # Asserts that the test raises the expected Exception
+  #
   #   asserts("test") { raise My::Exception }.raises(My::Exception)
   #   should("test") { raise My::Exception }.raises(My::Exception)
   #
   # You can also check to see if the provided message equals or matches your expectations. The message
   # from the actual raised exception will be converted to a string before any comparison is executed.
+  #
   #   asserts("test") { raise My::Exception, "Foo" }.raises(My::Exception, "Foo")
   #   asserts("test") { raise My::Exception, "Foo Bar" }.raises(My::Exception, /Bar/)
   class RaisesMacro < AssertionMacro
@@ -23,6 +25,6 @@ module Riot
         message = new_message.raises(expected_class)
         pass(expected_message ? message.with_message(expected_message) : message)
       end
-    end # evaluate
+    end 
   end # RaisesMacro
-end
+end # Riot

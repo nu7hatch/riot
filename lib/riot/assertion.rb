@@ -1,7 +1,9 @@
 module Riot
   class Assertion < RunnableBlock
     class << self
-      def macros; @@macros ||= {}; end
+      def macros
+        @@macros ||= {}
+      end
 
       def register_macro(name, assertion_macro, expect_exception=false)
         macros[name.to_s] = assertion_macro
@@ -21,7 +23,9 @@ module Riot
     rescue Exception => e
       @macro.expects_exception? ? @macro.evaluate(e, *@expectings) : @macro.error(e)
     end
-  private
+  
+    private
+  
     def enhance_with_macro(name, *expectings, &expectation_block)
       @expectings, @expectation_block = expectings, expectation_block
       @macro = self.class.macros[name.to_s].new

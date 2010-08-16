@@ -1,5 +1,6 @@
 module Riot
-  # Asserts the result contains the expected element
+  # Asserts the result contains the expected element.
+  #
   #   asserts("a string") { "world" }.includes('o')
   #   asserts("an array") { [1,2,3] }.includes(2)
   #   asserts("a range") { (1..15) }.includes(10)

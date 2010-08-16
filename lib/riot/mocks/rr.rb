@@ -2,7 +2,6 @@ require 'rr'
 
 module Riot
   module RR
-
     class Situation < Riot::Situation
       include ::RR::Adapters::RRMethods
     end # Situation
@@ -20,7 +19,7 @@ module Riot
     end # Assertion
 
     module ContextHelpers
-    private
+      private
       def assertion_class; Riot::RR::Assertion; end
       def situation_class; Riot::RR::Situation; end
     end # ContextHelpers
@@ -28,7 +27,6 @@ module Riot
     def self.enable(context_class)
       context_class.instance_eval { include Riot::RR::ContextHelpers }
     end
-
   end # RR
 end # Riot
 

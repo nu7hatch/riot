@@ -4,8 +4,14 @@ module Riot
       super()
       @writer = writer
     end
-    def puts(message) @writer.puts(message); end
-    def print(message) @writer.print(message); end
+    
+    def puts(message) 
+      @writer.puts(message)
+    end
+    
+    def print(message) 
+      @writer.print(message)
+    end
 
     def line_info(line, file)
       line ? "(on line #{line} in #{file})" : ""
@@ -21,7 +27,6 @@ module Riot
       format << "    #{e.class.name} occurred"
       format << "#{e.to_s}"
       e.backtrace.each { |line| format << "      at #{line}" }
-
       format.join("\n")
     end
 
@@ -35,5 +40,5 @@ module Riot
       alias :red :green
       alias :yellow :green
     end
-  end
-end
+  end # IOReporter
+end # Riot

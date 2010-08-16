@@ -49,11 +49,21 @@ module Riot
 
     attr_accessor :line, :file
 
-    def pass(message=nil) [:pass, message.to_s]; end
-    def fail(message) [:fail, message.to_s, line, file]; end
-    def error(e) [:error, e]; end
+    def pass(message=nil) 
+      [:pass, message.to_s]
+    end
+    
+    def fail(message) 
+      [:fail, message.to_s, line, file]
+    end
+    
+    def error(e) 
+      [:error, e]
+    end
 
-    def expects_exception?; self.class.expects_exception; end
+    def expects_exception?
+      self.class.expects_exception
+    end
 
     def evaluate(actual)
       actual ? pass : fail("Expected non-false but got #{actual.inspect} instead")
@@ -61,26 +71,21 @@ module Riot
 
     # Messaging
 
-    def new_message(*phrases) Message.new(*phrases); end
-    def should_have_message(*phrases) new_message.should_have(*phrases); end
-    def expected_message(*phrases) new_message.expected(*phrases); end
+    def new_message(*phrases) 
+      Message.new(*phrases)
+    end
+    
+    def should_have_message(*phrases) 
+      new_message.should_have(*phrases)
+    end
+    
+    def expected_message(*phrases) 
+      new_message.expected(*phrases)
+    end
   end
 end
 
-require 'riot/assertion_macros/any'
-require 'riot/assertion_macros/assigns'
-require 'riot/assertion_macros/contains'
-require 'riot/assertion_macros/empty'
-require 'riot/assertion_macros/equals'
-require 'riot/assertion_macros/equivalent_to'
-require 'riot/assertion_macros/exists'
-require 'riot/assertion_macros/includes'
-require 'riot/assertion_macros/kind_of'
-require 'riot/assertion_macros/matches'
-require 'riot/assertion_macros/nil'
-require 'riot/assertion_macros/not_borat'
-require 'riot/assertion_macros/raises'
-require 'riot/assertion_macros/respond_to'
-require 'riot/assertion_macros/same_elements'
-require 'riot/assertion_macros/size'
+Dir[File.join(File.dirname(__FILE__), 'assertion_macros/*.rb')].each {|assertion_macro|
+  require assertion_macro
+}
 

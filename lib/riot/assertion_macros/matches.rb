@@ -1,5 +1,6 @@
 module Riot
-  # Asserts that the result of the test equals matches against the proved expression
+  # Asserts that the result of the test equals matches against the proved expression.
+  #
   #   asserts("test") { "12345" }.matches(/\d+/)
   #   should("test") { "12345" }.matches(/\d+/)
   class MatchesMacro < AssertionMacro

@@ -1,5 +1,6 @@
 module Riot
-  # Asserts that the result of the test is an object that is a kind of the expected type
+  # Asserts that the result of the test is an object that is a kind of the expected type.
+  #
   #   asserts("test") { "foo" }.kind_of(String)
   #   should("test") { "foo" }.kind_of(String)
   class KindOfMacro < AssertionMacro

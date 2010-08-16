@@ -13,18 +13,24 @@ module Riot
     #   context "Foo" do
     #     set :transactional, true
     #   end
-    def set(key, value) options[key] = value; end
+    def set(key, value) 
+      options[key] = value
+    end
 
     # Returns the value of a set option. The key must match exactly, symbols and strings are not
     # interchangeable.
     #
     # @return [Object]
-    def option(key) options[key]; end
+    def option(key) 
+      options[key]
+    end
 
     # Returns the has of defined options.
     #
     # @return [Hash]
-    def options; @options ||= {}; end
+    def options
+      @options ||= {}
+    end
   end # ContextOptions
 
   # You make your assertions within a Context. The context stores setup and teardown blocks, and allows for
@@ -37,7 +43,9 @@ module Riot
     # The set of middleware helpers configured for the current test space.
     #
     # @return [Array]
-    def self.middlewares; @middlewares ||= []; end
+    def self.middlewares
+      @middlewares ||= []
+    end
 
     # The description of the context.
     #
@@ -201,7 +209,9 @@ module Riot
       setups + @assertions + teardowns
     end
 
-    def run_sub_contexts(reporter) @contexts.each { |ctx| ctx.run(reporter) }; end
+    def run_sub_contexts(reporter) 
+      @contexts.each { |ctx| ctx.run(reporter) }
+    end
 
     def new_context(description, klass, &definition)
       (@contexts << klass.new(description, self, &definition)).last
@@ -214,9 +224,7 @@ module Riot
       else
         description = "#{scope} #{what}"
       end
-
       (@assertions << assertion_class.new(description, &definition)).last
     end
   end # Context
-
 end # Riot

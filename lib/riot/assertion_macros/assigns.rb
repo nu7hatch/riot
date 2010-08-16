@@ -1,11 +1,13 @@
 module Riot
-  # Asserts that an instance variable is defined for the result of the assertion. Value of instance
-  # variable is expected to not be nil
+  # Asserts that an instance variable is defined for the result of the assertion. 
+  # Value of instance variable is expected to not be nil.
+  # 
   #   setup { User.new(:email => "foo@bar.baz") }
   #   topic.assigns(:email)
   #
   # If a value is provided in addition to the variable name, the actual value of the instance variable
-  # must equal the expected value
+  # must equal the expected value.
+  #
   #   setup { User.new(:email => "foo@bar.baz") }
   #   topic.assigns(:email, "foo@bar.baz")
   class AssignsMacro < AssertionMacro

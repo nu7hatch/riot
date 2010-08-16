@@ -4,5 +4,5 @@ module Riot
     def fail(description, message, line, file); end
     def error(description, e); end
     def results(time_taken); end
-  end
-end
+  end # SilentReporter
+end # Riot

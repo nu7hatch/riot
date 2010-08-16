@@ -1,6 +1,7 @@
 module Riot
   # Asserts that the result of the test equals the expected value. Using the +==+ operator to assert
   # equality.
+  #
   #   asserts("test") { "foo" }.equals("foo")
   #   should("test") { "foo" }.equals("foo")
   #   asserts("test") { "foo" }.equals { "foo" }

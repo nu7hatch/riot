@@ -1,5 +1,4 @@
 module Riot
-
   class ContextMiddleware
     # Registers the current middleware class with Riot so that it may be included in the set of middlewares
     # Riot will poke before executing a Context.
@@ -12,9 +11,12 @@ module Riot
     #       context.hookup { ... }
     #     end
     #   end
-    def self.register; Context.middlewares << self; end
+    def self.register
+      Context.middlewares << self
+    end
 
-    attr_reader :middleware # Theoretically, the next middleware in the stack
+    # Theoretically, the next middleware in the stack
+    attr_reader :middleware 
 
     def initialize(middleware)
       @middleware = middleware
@@ -34,7 +36,8 @@ module Riot
       @context_definition = context_definition
     end
 
-    def call(context) context.instance_eval(&@context_definition); end
+    def call(context) 
+      context.instance_eval(&@context_definition)
+    end
   end # AllImportantMiddleware
-
 end # Riot

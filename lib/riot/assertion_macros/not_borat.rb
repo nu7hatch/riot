@@ -1,6 +1,7 @@
 module Riot
   # Asserts the result of the test is a non-truthy value. Read the following assertions in the way Borat
   # learned about humor:
+  #
   #   asserts("you are funny") { false }.not!
   #   should("be funny") { nil }.not!
   #

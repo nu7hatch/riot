@@ -1,5 +1,6 @@
 module Riot
-  # Asserts the result is empty
+  # Asserts the result is empty.
+  #
   #   asserts("a string") { "" }.empty
   #   asserts("an array") { [] }.empty
   #   asserts("a hash") { Hash.new }.empty

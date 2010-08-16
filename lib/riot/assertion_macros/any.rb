@@ -1,5 +1,6 @@
 module Riot
-  # Asserts the result has items
+  # Asserts the result has items.
+  #
   #   asserts("an array") { [1] }.any
   #   asserts("a hash") { {:name => 'washington'} }.any
   class AnyMacro < AssertionMacro

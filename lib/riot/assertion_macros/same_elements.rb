@@ -1,5 +1,6 @@
 module Riot
   # Asserts that two arrays contain the same elements, the same number of times.
+  #
   #   asserts("test") { ["foo", "bar"] }.same_elements(["bar", "foo"])
   #   should("test") { ["foo", "bar"] }.same_elements(["bar", "foo"])
   class SameElementsMacro < AssertionMacro

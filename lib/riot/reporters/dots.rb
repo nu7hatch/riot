@@ -25,10 +25,13 @@ module Riot
       puts "\n#{@details.join("\n\n")}" unless @details.empty?
       super
     end
-  private
+    
+    private
+    
     def test_detail(description, message)
       "#{current_context.detailed_description} #{description} => #{message}"
     end
-  end
+  end # DotMatrixReporter
+  
   DotsReporter = DotMatrixReporter
-end
+end # Riot

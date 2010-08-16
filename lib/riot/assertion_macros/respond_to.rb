@@ -1,5 +1,6 @@
 module Riot
-  # Asserts that the result of the test is an object that responds to the given method
+  # Asserts that the result of the test is an object that responds to the given method.
+  #
   #   asserts("test") { "foo" }.respond_to(:to_s)
   #   should("test") { "foo" }.respond_to(:to_s)
   class RespondToMacro < AssertionMacro

@@ -6,12 +6,17 @@ module Riot
       super
       puts context.detailed_description
     end
-    def pass(description, message) puts "  + " + green("#{description} #{message}".strip); end
+    
+    def pass(description, message) 
+      puts "  + " + green("#{description} #{message}".strip)
+    end
 
     def fail(description, message, line, file)
       puts "  - " + yellow("#{description}: #{message} #{line_info(line, file)}".strip)
     end
 
-    def error(description, e) puts "  ! " + red("#{description}: #{e.message}"); end
-  end
-end
+    def error(description, e) 
+      puts "  ! " + red("#{description}: #{e.message}") 
+    end
+  end # StoryReporter
+end # Riot

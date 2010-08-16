@@ -6,7 +6,10 @@ module Riot
       @current_context = ""
     end
 
-    def success?; (@failures + @errors) == 0; end
+    def success?
+      (@failures + @errors) == 0
+    end
+    
     def summarize(&block)
       started = Time.now
       yield
@@ -14,7 +17,9 @@ module Riot
       results(Time.now - started)
     end
 
-    def describe_context(context); @current_context = context; end
+    def describe_context(context)
+      @current_context = context
+    end
 
     def report(description, response)
       code, result = *response

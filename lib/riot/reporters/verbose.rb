@@ -6,6 +6,7 @@ module Riot
       super
       puts red(format_error(e))
     end
-  end
+  end # VerboseStoryReporter
+  
   VerboseReporter = VerboseStoryReporter
-end
+end # Riot
