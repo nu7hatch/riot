@@ -69,6 +69,7 @@ end
 
 require 'riot/assertion_macros/any'
 require 'riot/assertion_macros/assigns'
+require 'riot/assertion_macros/contains'
 require 'riot/assertion_macros/empty'
 require 'riot/assertion_macros/equals'
 require 'riot/assertion_macros/equivalent_to'
@@ -82,3 +83,4 @@ require 'riot/assertion_macros/raises'
 require 'riot/assertion_macros/respond_to'
 require 'riot/assertion_macros/same_elements'
 require 'riot/assertion_macros/size'
+
