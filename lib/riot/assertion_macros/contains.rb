@@ -8,13 +8,21 @@ module Riot
 
     def evaluate(actual, expected)
       require 'set'
-      orig_actual = actual
-      actual = actual.split(/\s+/) if actual.is_a?(String)
-      contains = (Set.new(expected) - Set.new(actual)).empty?
-      contains ? pass : if orig_actual.is_a?(String)
-        fail(expected_message.sentence(orig_actual).to_contain(expected))
+      expected.is_a?(Array) or expected = [expected]
+      case actual
+      when String
+        actual_arr = actual.split(/\s+/)
+        contains = (Set.new(expected) - Set.new(actual_arr)).empty?
+        contains ? pass : fail(expected_message.sentence(actual).to_contain(expected))
+      when Array
+        contains = (Set.new(expected) - Set.new(actual)).empty?
+        contains ? pass : fail(expected_message.elements(actual).to_contain(expected))
+      when Hash
+        puts "#{expected.inspect} => #{actual.keys.inspect}"
+        contains = (Set.new(expected) - Set.new(actual.keys)).empty?
+        contains ? pass : fail(expected_message.hash(actual).to_contain_keys(expected))
       else
-        fail(expected_message.elements(orig_actual).to_contain(expected))
+        pass
       end
     end
   end
