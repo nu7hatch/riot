@@ -112,12 +112,12 @@ Rack applications can easily be tested using [Riot::Rack](http://github.com/dasc
 which integrates [Rack::Test](http://github.com/brynary/rack-test) into Riot.
 
     require 'riot'
-    require 'riot/rack'
+    require 'riot-rack'
 
     context "HelloWorldApp" do
       # Specify your app using the #app helper. If you don't specify
       # one, Riot::Rack will recursively look for a config.ru file.
-      app { HelloWorldApp }
+      app(HelloWorldApp)
 
       # You can use all the Rack::Test helpers in the setup blocks.
       setup { get '/' }
